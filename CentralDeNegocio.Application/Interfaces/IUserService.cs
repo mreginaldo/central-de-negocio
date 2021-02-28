@@ -6,5 +6,7 @@ namespace CentralDeNegocio.Application.Interfaces
     public interface IUserService
     {
         List<UserViewModel> Get();
+
+        bool Post(UserViewModel userViewModel);
     }
 }

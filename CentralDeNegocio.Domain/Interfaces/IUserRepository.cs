@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CentralDeNegocio.Domain.Interfaces
 {
-    public interface IUserRepository
+    public interface IUserRepository: IRepository<User>
     {
         IEnumerable<User> GetAll();
     }

@@ -2,6 +2,7 @@
 using CentralDeNegocio.Application.ViewModels;
 using CentralDeNegocio.Domain.Entities;
 using CentralDeNegocio.Domain.Interfaces;
+using System;
 using System.Collections.Generic;
 
 namespace CentralDeNegocio.Application.Services
@@ -32,6 +33,19 @@ namespace CentralDeNegocio.Application.Services
             }
 
             return _userViewModel;
+        }
+
+        public bool Post(UserViewModel userViewModel)
+        {
+            User _user = new User
+            {
+                Name = userViewModel.Name,
+                Email = userViewModel.Email
+            };
+
+            this.userRepository.Create(_user);
+
+            return true;
         }
     }
 }

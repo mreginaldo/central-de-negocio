@@ -30,6 +30,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CentralDeNegocio.Application\CentralDeNegocio.Application.csproj" />
     <ProjectReference Include="..\CentralDeNegocio.Data\CentralDeNegocio.Data.csproj" />
+    <ProjectReference Include="..\CentralDeNegocio.Domain\CentralDeNegocio.Domain.csproj" />
     <ProjectReference Include="..\CentralDeNegocio.IoC\CentralDeNegocio.IoC.csproj" />
   </ItemGroup>
 

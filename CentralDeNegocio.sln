@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CentralDeNegocio", "CentralDeNegocio\CentralDeNegocio.csproj", "{10265666-11FF-440F-BFB2-35B67AE61BA4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B64F8898-DC7F-4EAD-AB89-1AA453E5DA4C} = {B64F8898-DC7F-4EAD-AB89-1AA453E5DA4C}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-Web", "1-Web", "{435980EC-7AD1-4492-8C17-9B65A4A132D1}"
 EndProject
@@ -23,7 +26,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2-CrossCutting", "4.2-Cro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CentralDeNegocio.Data", "CentralDeNegocio.Data\CentralDeNegocio.Data.csproj", "{C4B544B9-E27C-4501-9AF2-5ABD132E41D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CentralDeNegocio.IoC", "CentralDeNegocio.IoC\CentralDeNegocio.IoC.csproj", "{454EED6F-A579-4ADD-9DB8-ABDDBA110DCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CentralDeNegocio.IoC", "CentralDeNegocio.IoC\CentralDeNegocio.IoC.csproj", "{454EED6F-A579-4ADD-9DB8-ABDDBA110DCD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
