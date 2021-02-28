@@ -1,4 +1,5 @@
 using CentralDeNegocio.Data.Context;
+using CentralDeNegocio.IoC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +26,8 @@ namespace CentralDeNegocio
             services.AddControllersWithViews();
 
             services.AddDbContext<CentralDeNegocioContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("CentralDeNegocio")).EnableSensitiveDataLogging());
+
+            NativeInjector.RegisterServices(services);
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

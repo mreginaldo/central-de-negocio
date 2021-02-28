@@ -28,7 +28,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CentralDeNegocio.Application\CentralDeNegocio.Application.csproj" />
     <ProjectReference Include="..\CentralDeNegocio.Data\CentralDeNegocio.Data.csproj" />
+    <ProjectReference Include="..\CentralDeNegocio.IoC\CentralDeNegocio.IoC.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
