@@ -1,11 +1,10 @@
-﻿using System;
+﻿using CentralDeNegocio.Application.ViewModels;
 using System.Collections.Generic;
-using System.Text;
 
 namespace CentralDeNegocio.Application.Interfaces
 {
     public interface IUserService
     {
-        void Test();
+        List<UserViewModel> Get();
     }
 }

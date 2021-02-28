@@ -1,9 +1,8 @@
 ﻿using CentralDeNegocio.Application.Interfaces;
 using CentralDeNegocio.Application.Services;
+using CentralDeNegocio.Data.Repositories;
+using CentralDeNegocio.Domain.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CentralDeNegocio.IoC
 {
@@ -11,7 +10,17 @@ namespace CentralDeNegocio.IoC
     {
         public static void RegisterServices(IServiceCollection services)
         {
+            #region Services
+
             services.AddScoped<IUserService, UserService>();
+
+            #endregion
+
+            #region Repositories
+
+            services.AddScoped<IUserRepository, UserRepository>();
+
+            #endregion
         }
     }
 }

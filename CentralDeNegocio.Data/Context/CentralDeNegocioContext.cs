@@ -1,18 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using CentralDeNegocio.Domain.Entities;
+﻿using CentralDeNegocio.Data.Extensions;
 using CentralDeNegocio.Data.Mappings;
-using CentralDeNegocio.Data.Extensions;
+using CentralDeNegocio.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace CentralDeNegocio.Data.Context
 {
     public class CentralDeNegocioContext : DbContext
     {
         public CentralDeNegocioContext(DbContextOptions<CentralDeNegocioContext> option)
-            : base(option) 
-        { 
+            : base(option)
+        {
         }
 
         #region "DBSets"
@@ -21,7 +18,7 @@ namespace CentralDeNegocio.Data.Context
 
         #endregion
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserMap());
 

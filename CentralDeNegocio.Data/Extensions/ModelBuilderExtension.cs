@@ -1,8 +1,6 @@
 ﻿using CentralDeNegocio.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace CentralDeNegocio.Data.Extensions
 {
@@ -16,7 +14,8 @@ namespace CentralDeNegocio.Data.Extensions
                     {
                         Id = Guid.Parse("7776FEC6-6253-497F-A099-7D90B86D92A2"),
                         Name = "User Default",
-                        Email = "userdefault@centraldenegocio.com.br"
+                        Email = "userdefault@centraldenegocio.com.br", 
+                        DateCreated = new DateTime(2021, 01, 01) 
                     }
                 );
 

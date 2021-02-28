@@ -4,14 +4,16 @@ using CentralDeNegocio.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CentralDeNegocio.Data.Migrations
 {
     [DbContext(typeof(CentralDeNegocioContext))]
-    partial class CentralDeNegocioContextModelSnapshot : ModelSnapshot
+    [Migration("20210228143216_Updating Degault User")]
+    partial class UpdatingDegaultUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

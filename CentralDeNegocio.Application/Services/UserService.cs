@@ -1,14 +1,37 @@
 ﻿using CentralDeNegocio.Application.Interfaces;
-using System;
+using CentralDeNegocio.Application.ViewModels;
+using CentralDeNegocio.Domain.Entities;
+using CentralDeNegocio.Domain.Interfaces;
 using System.Collections.Generic;
-using System.Text;
 
 namespace CentralDeNegocio.Application.Services
 {
-    public class UserService: IUserService
+    public class UserService : IUserService
     {
-        public void Test()
+        private readonly IUserRepository userRepository;
+
+        public UserService(IUserRepository userRepository)
         {
+            this.userRepository = userRepository;
+        }
+
+        public List<UserViewModel> Get()
+        {
+            List<UserViewModel> _userViewModel = new List<UserViewModel>();
+
+            IEnumerable<User> _users = this.userRepository.GetAll();
+
+            foreach (var item in _users) 
+            {
+                _userViewModel.Add(new UserViewModel
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    Email = item.Email
+                });
+            }
+
+            return _userViewModel;
         }
     }
 }

@@ -1,10 +1,5 @@
 ﻿using CentralDeNegocio.Application.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CentralDeNegocio.Controllers
 {
@@ -22,8 +17,7 @@ namespace CentralDeNegocio.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            this.userService.Test();
-            return Ok("Ok");
+            return Ok(this.userService.Get());
         }
     }
 }
