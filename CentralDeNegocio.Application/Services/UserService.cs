@@ -1,8 +1,8 @@
-﻿using CentralDeNegocio.Application.Interfaces;
+﻿using AutoMapper;
+using CentralDeNegocio.Application.Interfaces;
 using CentralDeNegocio.Application.ViewModels;
 using CentralDeNegocio.Domain.Entities;
 using CentralDeNegocio.Domain.Interfaces;
-using System;
 using System.Collections.Generic;
 
 namespace CentralDeNegocio.Application.Services
@@ -10,10 +10,12 @@ namespace CentralDeNegocio.Application.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository userRepository;
+        private readonly IMapper mapper;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, IMapper mapper)
         {
             this.userRepository = userRepository;
+            this.mapper = mapper;
         }
 
         public List<UserViewModel> Get()
@@ -22,26 +24,14 @@ namespace CentralDeNegocio.Application.Services
 
             IEnumerable<User> _users = this.userRepository.GetAll();
 
-            foreach (var item in _users) 
-            {
-                _userViewModel.Add(new UserViewModel
-                {
-                    Id = item.Id,
-                    Name = item.Name,
-                    Email = item.Email
-                });
-            }
+            _userViewModel = mapper.Map<List<UserViewModel>>(_users);
 
             return _userViewModel;
         }
 
         public bool Post(UserViewModel userViewModel)
         {
-            User _user = new User
-            {
-                Name = userViewModel.Name,
-                Email = userViewModel.Email
-            };
+            User _user = mapper.Map<User>(userViewModel);
 
             this.userRepository.Create(_user);
 

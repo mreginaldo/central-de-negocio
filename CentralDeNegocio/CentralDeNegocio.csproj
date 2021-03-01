@@ -13,6 +13,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.3">
       <PrivateAssets>all</PrivateAssets>
@@ -32,6 +34,7 @@
     <ProjectReference Include="..\CentralDeNegocio.Data\CentralDeNegocio.Data.csproj" />
     <ProjectReference Include="..\CentralDeNegocio.Domain\CentralDeNegocio.Domain.csproj" />
     <ProjectReference Include="..\CentralDeNegocio.IoC\CentralDeNegocio.IoC.csproj" />
+    <ProjectReference Include="..\CentralDeNegocio.Swagger\CentralDeNegocio.Swagger.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
