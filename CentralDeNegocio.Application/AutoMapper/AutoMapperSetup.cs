@@ -4,7 +4,7 @@ using CentralDeNegocio.Domain.Entities;
 
 namespace CentralDeNegocio.Application.AutoMapper
 {
-    class AutoMapperSetup : Profile
+    public class AutoMapperSetup : Profile
     {
         public AutoMapperSetup()
         {

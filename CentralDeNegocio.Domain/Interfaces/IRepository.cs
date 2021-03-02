@@ -16,6 +16,8 @@ namespace CentralDeNegocio.Domain.Interfaces
 
         bool Update(List<TEntity> model);
 
+        public bool Delete(TEntity model);
+
         bool Delete(params object[] keys);
 
         bool Delete(Expression<Func<TEntity, bool>> where);

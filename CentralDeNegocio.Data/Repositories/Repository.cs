@@ -186,7 +186,7 @@ namespace CentralDeNegocio.Data.Repositories
         {
             try
             {
-                return DbSet.FirstOrDefault(where);
+                return DbSet.AsNoTracking().FirstOrDefault(where);
             }
             catch (Exception)
             {
