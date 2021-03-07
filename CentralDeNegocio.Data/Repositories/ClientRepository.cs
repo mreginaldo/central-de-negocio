@@ -5,15 +5,15 @@ using System.Collections.Generic;
 
 namespace CentralDeNegocio.Data.Repositories
 {
-    public class UserRepository : Repository<User>, IUserRepository
+    public class ClientRepository : Repository<Client>, IClientRepository
     {
-        public UserRepository(CentralDeNegocioContext context) : base(context)
+        public ClientRepository(CentralDeNegocioContext context) : base(context)
         {
         }
 
-        public IEnumerable<User> GetAll()
+        public IEnumerable<Client> GetAll()
         {
-            return null;// Query(x => !x.IsDeleted);
+            return Query(x => !x.IsDeleted);
         }
     }
 }

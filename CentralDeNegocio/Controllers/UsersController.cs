@@ -22,7 +22,7 @@ namespace CentralDeNegocio.Controllers
             return Ok(this.userService.Get());
         }
 
-        [HttpPost]
+        [HttpPost, AllowAnonymous]
         public IActionResult Post(UserViewModel userViewModel)
         {
             return Ok(this.userService.Post(userViewModel));

@@ -19,7 +19,8 @@ namespace CentralDeNegocio.Data.Extensions
                     {
                         case nameof(Entity.Id):
                             property.IsKey();
-                                break;
+                            property.IsNullable = false;
+                            break;
                         case nameof(Entity.DateUpdated):
                             property.IsNullable = true;
                             break;
@@ -42,14 +43,16 @@ namespace CentralDeNegocio.Data.Extensions
 
         public static ModelBuilder SeedData(this ModelBuilder builder)
         {
-            builder.Entity<User>()
+            builder.Entity<Client>()
                 .HasData(
-                    new User
+                    new Client
                     {
                         Id = Guid.Parse("7776FEC6-6253-497F-A099-7D90B86D92A2"),
-                        Name = "User Default",
-                        Email = "userdefault@centraldenegocio.com.br", 
-                        DateCreated = new DateTime(2021, 01, 01) 
+                        FullName = "User Default",
+                        Email = "userdefault@centraldenegocio.com.br",
+                        MobileNumber = "16991670698",
+                        Password = "Abc123456", 
+                        DateCreated = new DateTime(2021, 01, 01)
                     }
                 );
 

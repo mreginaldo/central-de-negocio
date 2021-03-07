@@ -11,12 +11,14 @@ namespace CentralDeNegocio.Application.AutoMapper
             #region ViewModelToDomain
 
             CreateMap<UserViewModel, User>();
+            CreateMap<ClientViewModel, Client>();
 
             #endregion
 
             #region DomainToViewModel
 
             CreateMap<User, UserViewModel>();
+            CreateMap<Client, ClientViewModel>();
 
             #endregion
         }

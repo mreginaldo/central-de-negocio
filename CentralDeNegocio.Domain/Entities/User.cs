@@ -1,12 +1,9 @@
-﻿using CentralDeNegocio.Domain.Models;
-using System;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace CentralDeNegocio.Domain.Entities
 {
-    public class User : Entity
+    public class User : IdentityUser
     {
-        public string Name { get; set; }
-
-        public string Email { get; set; }
+        public string FullName { get; set; }
     }
 }

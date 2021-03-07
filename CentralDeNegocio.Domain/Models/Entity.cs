@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CentralDeNegocio.Domain.Interfaces;
+using System;
 
 namespace CentralDeNegocio.Domain.Models
 {

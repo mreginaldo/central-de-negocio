@@ -27,14 +27,14 @@ namespace CentralDeNegocio.Data.Repositories
 
         #endregion
 
-        public Repository(CentralDeNegocioContext context) 
+        public Repository(CentralDeNegocioContext context)
         {
             _context = context;
         }
 
         #region 'Methods: Create/Update/Remove/Save'
 
-        public TEntity Create(TEntity model)
+        public virtual TEntity Create(TEntity model)
         {
             try
             {
@@ -158,12 +158,46 @@ namespace CentralDeNegocio.Data.Repositories
         {
             try
             {
+                OnBeforeSaving(_context.ChangeTracker);
+
                 return _context.SaveChanges();
             }
             catch (Exception)
             {
                 throw;
             }
+        }
+
+        private static void OnBeforeSaving(ChangeTracker changeTracker)
+        {
+            var added = changeTracker.Entries<TEntity>().Where(E => E.State == EntityState.Added).ToList();
+
+            added.ForEach(E =>
+            {
+                //if (!Attribute.IsDefined(E.Entity.GetType().GetProperty("DateCreated"), typeof(NotMappedAttribute))) 
+                if (E.Entity.GetType().GetProperty("DateCreated") != null)
+                {
+                    E.Property("DateCreated").CurrentValue = DateTime.Now;
+                    E.Property("DateCreated").IsModified = true;
+                }
+            });
+
+            var modified = changeTracker.Entries<TEntity>().Where(E => E.State == EntityState.Modified).ToList();
+
+            modified.ForEach(E =>
+            {
+                if (E.Entity.GetType().GetProperty("DateUpdated") != null)
+                {
+                    E.Property("DateUpdated").CurrentValue = DateTime.Now;
+                    E.Property("DateUpdated").IsModified = true;
+                }
+
+                if (E.Entity.GetType().GetProperty("DateCreated") != null)
+                {
+                    E.Property("DateCreated").CurrentValue = E.Property("DateCreated").OriginalValue;
+                    E.Property("DateCreated").IsModified = false;
+                }
+            });
         }
 
         #endregion

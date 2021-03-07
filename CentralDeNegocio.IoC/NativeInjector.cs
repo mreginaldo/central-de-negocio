@@ -13,12 +13,14 @@ namespace CentralDeNegocio.IoC
             #region Services
 
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IClientService, ClientService>();
 
             #endregion
 
             #region Repositories
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IClientRepository, ClientRepository>();
 
             #endregion
         }

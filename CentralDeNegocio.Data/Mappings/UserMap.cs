@@ -8,11 +8,29 @@ namespace CentralDeNegocio.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.Property(x => x.Id).IsRequired();
+            //builder.Property(x => x.Id).IsRequired();
 
-            builder.Property(x => x.Name).HasMaxLength(100).IsRequired();
+            //builder
+            //    .Property(x => x.Name)
+            //    .HasColumnType("varchar(100)")
+            //    .HasMaxLength(100)
+            //    .IsRequired();
 
-            builder.Property(x => x.Email).HasMaxLength(250).IsRequired();
+            //builder
+            //    .HasIndex(b => b.Name);
+
+            //builder
+            //    .Property(x => x.Email)
+            //    .HasColumnType("varchar(250)")
+            //    .HasMaxLength(250)
+            //    .IsRequired();
+
+            //builder
+            //    .HasIndex(b => b.Email)
+            //    .IsUnique();
+
+            //builder
+            //    .HasIndex(p => new { p.Ssn, p.DateOfBirth });
         }
     }
 }
